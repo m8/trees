@@ -428,7 +428,7 @@
                         Math.random(),
                         escapeHtml(row['id'] || 'Unknown'),
                         escapeHtml(row['tree'] || 'Unknown') + `<br> <small class="text-muted">${escapeHtml(row['bio'] || '')}</small>`,
-                        `<button class="btn btn-gray btn-sm" onclick="showOnMap(` + i + `)">
+                        `<button class="btn btn-gray btn-sm" onclick="showOnMap(${parseInt(row['id'])-1})">
                             <i class="bi bi-geo-alt"></i> 📍
                         </button>`
                     ];
