@@ -12,7 +12,7 @@ you can contribute by adding a new tree, validating an existing one or by correc
 
 ```
 Type: <type of contribution - add, validate, correct>
-Location: <location>
+Location: <location> (lat, lng)
 Species: <species>
 Description: You can also add a image link if it is available
 Attribution: <your name> (optional)
