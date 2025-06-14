@@ -257,9 +257,6 @@
         };
 
         let selectedLocationMarker = null;
-        baseMaps["Satellite"].addTo(map);
-
-        L.control.layers(baseMaps).addTo(map);
 
         document.addEventListener('DOMContentLoaded', function() {
             baseMaps["Satellite"].addTo(map);
@@ -319,15 +316,6 @@
                 }
             });
         });
-        L.control.locate({
-            keepCurrentZoomLevel: true,
-            flyTo: true,
-            showPopup: false,
-            locateOptions: {
-                enableHighAccuracy: true
-            },
-            drawCircle: false,
-        }).addTo(map);
 
         function parseGoogleVisualizationResponse(jsonString) {
             try {
