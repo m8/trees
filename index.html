@@ -126,7 +126,7 @@
                         aria-labelledby="tree-data-tab">
 
                         <div class="table-responsive pt-2">
-                            <div class="row mb-2">
+                            <!-- <div class="row mb-2">
                                 <div class="col-md-6">
                                     <input id="coordinateSearch" class="form-control" type="text"
                                         placeholder="Search by coordinates (lat,lng)">
@@ -141,7 +141,7 @@
                                         <option value="Cherry">🌸 Cherry</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <table id="treeTable" class="table table-hover table-striped">
                                 <thead class="table-light">
@@ -259,6 +259,8 @@
         let selectedLocationMarker = null;
         baseMaps["Satellite"].addTo(map);
 
+        L.control.layers(baseMaps).addTo(map);
+
         document.addEventListener('DOMContentLoaded', function() {
             baseMaps["Satellite"].addTo(map);
             L.control.layers(baseMaps).addTo(map);
@@ -280,6 +282,7 @@
                     });
             }, 100);
         });
+
 
         map.on('click', function (e) {
             const { lat, lng } = e.latlng;
@@ -316,6 +319,15 @@
                 }
             });
         });
+        L.control.locate({
+            keepCurrentZoomLevel: true,
+            flyTo: true,
+            showPopup: false,
+            locateOptions: {
+                enableHighAccuracy: true
+            },
+            drawCircle: false,
+        }).addTo(map);
 
         function parseGoogleVisualizationResponse(jsonString) {
             try {
